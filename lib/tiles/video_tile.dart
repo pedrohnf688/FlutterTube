@@ -30,7 +30,7 @@ class VideoTile extends StatelessWidget {
                     stream: BlocProvider.of<FavoriteBloc>(context).outFav,
                     builder: (context, snapshot){
                       if(snapshot.hasData){
-                        return IconButton(icon: Icon(snapshot.data.containsKey(video.id) ? Icons.star : Icons.star_border), iconSize: 30, color: Colors.white, onPressed: (){});
+                        return IconButton(icon: Icon(snapshot.data.containsKey(video.id) ? Icons.star : Icons.star_border), iconSize: 30, color: Colors.white, onPressed: (){BlocProvider.of<FavoriteBloc>(context).toogleFavorite(video);});
                       }else{
                         return CircularProgressIndicator();
                       }
